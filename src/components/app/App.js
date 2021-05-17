@@ -1,9 +1,10 @@
 import React from 'react';
+import EventList from '../event-list/EventList'
 
 function App() {
   return (
     <div className="App">
-      MeetApp
+      <EventList />
     </div>
   );
 }

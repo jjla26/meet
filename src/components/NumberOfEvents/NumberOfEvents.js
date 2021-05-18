@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function NumberOfEvents(props) {
-  const { value, setValue } = props
+function NumberOfEvents() {
+  const  [ numberOfEvents, setNumberOfEvents ] = useState(32)
 
   const handleChange = (e) => {
-    setValue(e.target.value)
+    setNumberOfEvents(e.target.value)
   }
 
   return (
@@ -12,7 +12,7 @@ function NumberOfEvents(props) {
       <input
         type="number"
         className="numberOfEvents"
-        value={value}
+        value={numberOfEvents}
         onChange={handleChange}
       />
     </div>

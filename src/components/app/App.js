@@ -3,6 +3,7 @@ import EventList from '../event-list/EventList'
 import CitySearch from '../citysearch/CitySearch'
 import NumberOfEvents from '../NumberOfEvents/NumberOfEvents'
 import { extractLocations, getEvents } from '../../api/api';
+import "../../nprogress.css"
 
 class App extends React.Component {
   state={

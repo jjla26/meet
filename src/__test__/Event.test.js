@@ -13,12 +13,12 @@ describe('<Event /> component', () => {
 
   test('should have a collapsed event details by default', () => {
     expect(EventWrapper.find('.event__details')).toHaveLength(1);
-    expect(EventWrapper.find('.show__details')).toHaveLength(0);
+    expect(EventWrapper.find('.display-none')).toHaveLength(1);
   })
 
   test('should show event details when click on button', () => {
     EventWrapper.find('.event__button').simulate('click')
-    expect(EventWrapper.find('.show__details')).toHaveLength(1);
+    expect(EventWrapper.find('.display-none')).toHaveLength(0);
   })
 
   test('should hide event details when click on button', () => {
@@ -26,7 +26,7 @@ describe('<Event /> component', () => {
       show: true
     })
     EventWrapper.find('.event__button').simulate('click')
-    expect(EventWrapper.find('.show__details')).toHaveLength(0);
+    expect(EventWrapper.find('.display-none')).toHaveLength(1);
   })
 
   test('should show all the data of the events', () => {

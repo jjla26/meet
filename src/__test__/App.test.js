@@ -53,9 +53,7 @@ describe('<App /> integration', () => {
     const selectedCity = suggestions[selectedIndex];
     await CitySearchWrapper.instance().handleItemClicked(selectedCity);
     const allEvents = await getEvents();
-    allEvents.slice(0,AppWrapper.state('numberOfEvents'))
-    const eventsToShow = allEvents.filter(event => event.location === selectedCity);
-    AppWrapper.update()
+    const eventsToShow = allEvents.filter(event => event.location === selectedCity).slice(0, AppWrapper.state('numberOfEvents'));
     expect(AppWrapper.state('events')).toEqual(eventsToShow);
     AppWrapper.unmount();
   });

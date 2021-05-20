@@ -8,25 +8,32 @@ import "../../nprogress.css"
 class App extends React.Component {
   state={
     events: [],
-    locations: []
+    locations: [],
+    numberOfEvents: 12,
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, eventCount = this.state.numberOfEvents) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all') ?
-        events :
-        events.filter((event) => event.location === location);
+        events.slice(0, eventCount) :
+        events.filter((event) => event.location === location).slice(0, eventCount);
       this.setState({
-        events: locationEvents
+        events: locationEvents,
       });
     });
+  }
+
+  updateNumberOfEvents = (number) => {
+    this.setState({
+      numberOfEvents: number,
+    })
   }
 
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({ events: events.slice(0, this.state.numberOfEvents), locations: extractLocations(events) });
       }
     });
   }
@@ -39,7 +46,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents />  
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents}/>  
         <EventList events={this.state.events} />
       </div>
     );

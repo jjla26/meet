@@ -1,4 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+body {
+  background-color: #1b262c;
+  color: #bbe1fa
+}
+
 .App {
   text-align: center;
   padding: 2% 5%;
@@ -29,11 +35,17 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid #3282b8;
   font-size: 14px;
   line-height: 20px;
-  align-self: center;
   height: 38px;
+  background-color: #1b262c;
+  color: #bbe1fa
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover {
+  border: 1px solid #bbe1fa;
 }
 
 .city {
@@ -47,6 +59,10 @@ input[type="number"] {
   max-width: 300px;
   margin: auto;
   position: relative;
+}
+
+.CitySearch input {
+  align-self: center;
 }
 
 .suggestions {
@@ -63,7 +79,7 @@ input[type="number"] {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #1b262c;
   cursor: default;
 }
 
@@ -73,16 +89,37 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: #3282b8;
+}
+
+.EventList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
-  border: 1px solid #ccc;
+  border: 1px solid #3282b8;
   border-radius: 4px;
   position: relative;
+  background-color: #1b262c;
+  box-shadow: 3px 3px #3282b8;
+  flex: 1;
+  min-width: 100%;
+  margin: 50px 0px;
+}
+
+.event:hover {
+  border-color: #bbe1fa;
+  box-shadow: 3px 3px #bbe1fa;
+}
+
+.event__details {
+  margin: 20px
 }
 
 .event__button {
@@ -93,6 +130,20 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+  background-color: #0f4c75;
+  border: 0;
+  height: 40px;
+  color: #bbe1fa;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.event__button:hover {
+  color: white
+}
+
+.event__details {
+  animation: fadeIn 2s;
 }
 
 .name {
@@ -114,10 +165,11 @@ input[type="number"] {
   overflow-x: hidden;
 }
 
-.numberOfEvents {
-  width: 200px;
-  margin: 20px auto;
-  text-align: center;
+.NumberOfEvents {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .button-wrapper {
@@ -210,5 +262,20 @@ input[type="number"] {
     min-width: auto;
     margin: 0 auto;
   }
+
+  .event {
+    min-width: 600px;
+    margin: 50px 10px
+  }
+
+  .EventList {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
 

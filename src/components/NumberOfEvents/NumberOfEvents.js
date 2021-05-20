@@ -10,6 +10,7 @@ function NumberOfEvents(props) {
 
   return (
     <div className="NumberOfEvents">
+      <label>Nº. of events</label>
       <input
         type="number"
         className="numberOfEvents"

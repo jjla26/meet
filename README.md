@@ -1,5 +1,8 @@
 # Meet App
 
+### Objective 
+To build a serverless, progressive web application (PWA) with React using a test-driven development (TDD) technique usign AWS Lambda. The application uses the Google Calendar API to fetch upcoming events.
+
 ### Features and Requirements
 
 #### Key Features:
@@ -74,3 +77,14 @@
       Given the user wanted to see a summary of upcoming events
       When the user opens the summary sections in the app
       Then he can see the chart with the upcoming events by city 
+
+
+### Do you want to experiment with this project?
+Clone this repository using: git clone https://github.com/jjla26/meet.git
+After cloning the repository run: npm install to install all the 
+
+#### IMPORTANT (If you want to deploy your project)
+This project is using a private Google Calendar API. Therefore, you need to create your own google account, configurate your Google Calendar API to get the credentials and add them to your project. However, it can be used locally without problems =).
+
+### To run the tests
+After cloning this project and installing the dependencies you can run the tests using: npm run test

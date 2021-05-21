@@ -1,4 +1,4 @@
-import puppeteer, { Keyboard } from "puppeteer";
+import puppeteer from "puppeteer";
 import { mockData } from '../mock-data/mock-data';
 import { extractLocations } from '../api/api';
 
@@ -16,6 +16,7 @@ describe('show/hide an event details', () => {
   afterAll(() => {
     browser.close();
   });
+
   test('An event element is collapsed by default', async () => {
     const eventDetails = await page.$('.event__details .display-none');
     expect(eventDetails).toBeNull();
@@ -37,14 +38,12 @@ describe('show/hide an event details', () => {
 describe('Filter events by city', () => {
   let browser;
   let page;
-  let locations;
   jest.setTimeout(30000);
   beforeAll(async () => {
     browser = await puppeteer.launch({ slowMo: 250, headless: false});
     page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('.city');
-    locations = extractLocations(mockData);
   });
 
   afterAll(() => {
@@ -61,6 +60,18 @@ describe('Filter events by city', () => {
     await page.keyboard.type('Berlin')
     let suggestions = await page.$$('.suggestions li')
     expect(suggestions).toHaveLength(2)
+  });
+
+  test('the city should be changed and the list of events updated', async () => {
+    let  selectedSuggestion = await page.$('.suggestions li')
+    selectedSuggestion = await selectedSuggestion.evaluate(el => el.textContent)
+    await page.click('.suggestions li')
+    const events = await page.$$('.event__location')
+    for(const element of events){
+      let text 
+      text = await element.evaluate(el => el.textContent)
+      expect(text).toBe(selectedSuggestion)
+    }
   });
 
 });

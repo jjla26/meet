@@ -9,7 +9,7 @@ class App extends React.Component {
   state={
     events: [],
     locations: [],
-    numberOfEvents: 12,
+    numberOfEvents: 32,
     filteredList: []
   }
 
@@ -28,6 +28,7 @@ class App extends React.Component {
   updateNumberOfEvents = (number) => {
     this.setState({
       numberOfEvents: number,
+      filteredList: filterList(this.state.events, number)
     })
   }
 

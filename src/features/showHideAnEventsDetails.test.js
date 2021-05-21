@@ -19,6 +19,7 @@ defineFeature(feature, test => {
     then('the events should be collapsed by default', () => {
       const details = AppWrapper.find('.event').find('.display-none')
       expect(details).toHaveLength(AppWrapper.state('numberOfEvents'))
+      AppWrapper.unmount();
     });
   });
 
@@ -36,6 +37,7 @@ defineFeature(feature, test => {
     then('they should get a details box showing the details of the specific event', () => {
       const details = AppWrapper.find('.event').at(0).find('.display-none')
       expect(details).toHaveLength(0)
+      AppWrapper.unmount();
     });
   });
 
@@ -54,6 +56,7 @@ defineFeature(feature, test => {
     then('the event should collapse and hide the details', () => {
       const details = AppWrapper.find('.event').at(0).find('.display-none')
       expect(details).toHaveLength(1)
+      AppWrapper.unmount();
     });
   });
 

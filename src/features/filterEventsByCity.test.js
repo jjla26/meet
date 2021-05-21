@@ -23,6 +23,7 @@ defineFeature(feature, test => {
       AppWrapper.update();
       const data = filterList(mockData, AppWrapper.state('numberOfEvents'))
       expect(AppWrapper.find('.event')).toHaveLength(data.length);
+      AppWrapper.unmount()
     });
   });
 
@@ -68,9 +69,7 @@ defineFeature(feature, test => {
     and('the user should receive a list of upcoming events in that city', () => {
       const data = filterList(mockData, AppWrapper.state('numberOfEvents'))
       expect(AppWrapper.find('.event')).toHaveLength(data.length);  
+      AppWrapper.unmount();
     });
-
   });
-  
-
 });

@@ -17,6 +17,7 @@ defineFeature(feature, test => {
 
     then('the list of events should have 32 events by default.', () => {
       expect(AppWrapper.find('.event')).toHaveLength(32)
+      AppWrapper.unmount();
     });
   });
 
@@ -34,6 +35,7 @@ defineFeature(feature, test => {
     then('the list of events should be as long as the number specify by the user', () => {
       AppWrapper.update()
       expect(AppWrapper.find('.event')).toHaveLength(AppWrapper.state('numberOfEvents'))
+      AppWrapper.unmount();
     });
   });
 

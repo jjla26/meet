@@ -31,3 +31,25 @@ describe('show/hide an event details', () => {
     expect(eventDetails).toBeNull();
   });
 });
+
+describe('Filter events by city', () => {
+  let browser;
+  let page;
+  jest.setTimeout(30000);
+  beforeAll(async () => {
+    browser = await puppeteer.launch();
+    page = await browser.newPage();
+    await page.goto('http://localhost:3000/');
+    await page.waitForSelector('.city');
+  });
+
+  afterAll(() => {
+    browser.close();
+  });
+  
+  test('An event element is collapsed by default', async () => {
+    const eventDetails = await page.$('.event__details .display-none');
+    expect(eventDetails).toBeNull();
+  });
+
+});

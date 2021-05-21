@@ -2,6 +2,7 @@ import React from 'react';
 import EventList from '../event-list/EventList'
 import CitySearch from '../citysearch/CitySearch'
 import NumberOfEvents from '../NumberOfEvents/NumberOfEvents'
+import Footer from '../footer/footer'
 import { extractLocations, getEvents, filterList } from '../../api/api';
 import "../../nprogress.css"
 
@@ -47,12 +48,15 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="App">
-        <h1>Meet App</h1>
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents}/>  
-        <EventList events={this.state.filteredList} />
-      </div>
+      <>
+        <div className="App">
+          <h1>Meet App</h1>
+          <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
+          <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents}/>  
+          <EventList events={this.state.filteredList} />
+        </div>
+        <Footer />
+      </>
     );
   }
 }

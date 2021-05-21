@@ -3,7 +3,7 @@
 ### Features and Requirements
 
 #### Key Features:
-1. Filter events by city.
+#### Feature: Filter events by city.
 ###### User Story: 
   * As an user, I would like to be able to filter events by city so I can see the events that are running in one city.
 ###### Scenarios: 
@@ -20,12 +20,12 @@
       When the user selects the city
       Then the city should change and show the upcoming events for that city 
 
-2. Show/hide event details.
+#### Feature: Show/hide event details.
 ###### User Story: 
   * As an user, I would like to be able to show/hide event details so I can see more/less information of a specific event if i need it. 
 ###### Scenarios: 
   1.	An event element is collapsed by default.
-      Given the user searched for a list of events
+      Given the main page is opened
       When the user gets the list of events
       Then the events should be collapsed by default 	 
   2.	User can expand an event to see its details.
@@ -37,7 +37,7 @@
       When the user clicks on collapse event details 
       Then the event should collapse and hide the details 
 
-3. Specify number of events.
+#### Feature: Specify number of events.
 ###### User Story: 
   * As an user, I would like to specify the number of events I want to see so I can see more/fewer events in the events list.
 ###### Scenarios: 
@@ -50,7 +50,7 @@
       When the user changes the number of events 
       Then the list of events should be as long as the number specify by the user
 
-4. Use the app when offline.
+#### Feature: Use the app when offline.
 ###### User Story: 
   * As an user, I would like to use the app when I am offline so I can see the last events that were loaded.
 ###### Scenarios: 
@@ -66,7 +66,7 @@
 5. Add an app shortcut to the home screen.
 ----
 
-6. View a chart showing the number of upcoming events by city.
+#### Feature: View a chart showing the number of upcoming events by city.
 ###### User Story: 
   * As an user, I would like to see a chart showing the number of upcoming events by city so that I know what events are happening in specific cities.
 ###### Scenarios: 

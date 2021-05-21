@@ -81,10 +81,11 @@ To build a serverless, progressive web application (PWA) with React using a test
 
 ### Do you want to experiment with this project?
 Clone this repository using: git clone https://github.com/jjla26/meet.git
-After cloning the repository run: npm install to install all the 
-
-#### IMPORTANT (If you want to deploy your project)
-This project is using a private Google Calendar API. Therefore, you need to create your own google account, configurate your Google Calendar API to get the credentials and add them to your project. However, it can be used locally without problems =).
+After cloning the repository run: npm install to install all the dependencies
+Then you can start the project by running the command: npm start
 
 ### To run the tests
 After cloning this project and installing the dependencies you can run the tests using: npm run test
+
+#### IMPORTANT (If you want to deploy your project)
+This project is using a private Google Calendar API. Therefore, you need to create your own google account, configurate your Google Calendar API to get the credentials and add them to your project. However, it can be used locally without problems =).

@@ -45,7 +45,7 @@ To build a serverless, progressive web application (PWA) with React using a test
   * As an user, I would like to specify the number of events I want to see so I can see more/fewer events in the events list.
 ###### Scenarios: 
   1.	When a user hasn’t specific a number, 32 is the default number.
-      Given the user searched for events
+      Given the main page is loaded
       When the user gets the list of events
       Then the list of events should have 32 events by default.
   2.	User can change the number of events they want to see.

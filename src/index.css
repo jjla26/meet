@@ -2,12 +2,15 @@
 
 body {
   background-color: #1b262c;
-  color: #bbe1fa
+  color: #bbe1fa;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
   text-align: center;
-  padding: 2% 5%;
+  padding: 30px 5%;
+  min-height: calc(100vh - 100px);
 }
 
 .App * {
@@ -241,6 +244,7 @@ input[type="number"]:hover {
   width: 18px;
   height: 18px;
 }
+
 .btn-text {
   float: right;
   margin: 11px 11px 0 0;
@@ -250,7 +254,15 @@ input[type="number"]:hover {
   font-family: "Roboto";
 }
 
-
+.footer {
+  background-color: #4285f4;
+  color: #bbe1fa;
+  height: 40px;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
@@ -278,4 +290,3 @@ input[type="number"]:hover {
   0% {opacity:0;}
   100% {opacity:1;}
 }
-

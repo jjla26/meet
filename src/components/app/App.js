@@ -21,7 +21,7 @@ class App extends React.Component {
         events.filter((event) => event.location === location);
       this.setState({
         events: locationEvents,
-        filteredList: filterList(events, eventCount)
+        filteredList: filterList(locationEvents, eventCount)
       });
     });
   }

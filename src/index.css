@@ -62,6 +62,7 @@ input[type="number"]:hover {
   max-width: 300px;
   margin: auto;
   position: relative;
+  margin-top: 30px
 }
 
 .CitySearch input {
@@ -74,7 +75,7 @@ input[type="number"]:hover {
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
+  top: 58px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -185,7 +186,8 @@ input[type="number"]:hover {
 
 .Alert {
   position: fixed;
-  top: 20px;
+  top: 90px;
+  margin-left: -50px;
 }
 
 .data-vis-wrapper {

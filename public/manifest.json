@@ -3,18 +3,18 @@
   "name": "Meet App",
   "icons": [
     {
-      "src": "./img/favicon.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "./img/meet-app-192.png",
+      "src": "meet-app-192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
     },
     {
-      "src": "./img/meet-app-512.png",
+      "src": "meet-app-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

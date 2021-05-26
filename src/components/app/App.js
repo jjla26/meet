@@ -5,13 +5,15 @@ import NumberOfEvents from '../NumberOfEvents/NumberOfEvents'
 import Footer from '../footer/footer'
 import { extractLocations, getEvents, filterList } from '../../api/api';
 import "../../nprogress.css"
+import { WarningAlert } from '../alert/Alert';
 
 class App extends React.Component {
   state={
     events: [],
     locations: [],
     numberOfEvents: 32,
-    filteredList: []
+    filteredList: [],
+    offline: false,
   }
 
   updateEvents = (location, eventCount = this.state.numberOfEvents) => {
@@ -21,7 +23,8 @@ class App extends React.Component {
         events.filter((event) => event.location === location);
       this.setState({
         events: locationEvents,
-        filteredList: filterList(locationEvents, eventCount)
+        filteredList: filterList(locationEvents, eventCount),
+        offline: navigator.onLine ? false : true
       });
     });
   }
@@ -37,19 +40,26 @@ class App extends React.Component {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({ events: events, locations: extractLocations(events), filteredList: filterList( events, this.state.numberOfEvents) });
+        this.setState({ 
+          events: events, 
+          locations: extractLocations(events), 
+          filteredList: filterList( events, this.state.numberOfEvents) ,
+          offline: navigator.onLine ? false : true
+        });
       }
     });
   }
 
   componentWillUnmount(){
     this.mounted = false;
+    window.removeEventListener('offline')
   }
 
   render(){
     return (
       <>
         <div className="App">
+          {this.state.offline && <WarningAlert text="You are offline! The shown events have been loaded from the cache" />}
           <h1>Meet App</h1>
           <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
           <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents}/>  

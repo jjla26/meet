@@ -32,6 +32,14 @@ class WarningAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'yellow';
+    this.getStyle = () => {
+      return {
+        position: 'fixed',
+        top: '20px',
+        left: '20px',
+        color: this.color
+      }
+    }
   }
 }
 

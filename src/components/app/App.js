@@ -16,6 +16,16 @@ class App extends React.Component {
     offline: false,
   }
 
+  getData = () => {
+    const {locations, events} = this.state;
+    const data = locations.map((location)=>{
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(' ').shift()
+      return {city, number};
+    })
+    return data;
+  };
+
   updateEvents = (location, eventCount = this.state.numberOfEvents) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all') ?

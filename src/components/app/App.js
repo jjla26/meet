@@ -1,11 +1,14 @@
 import React from 'react';
+
 import EventList from '../event-list/EventList'
 import CitySearch from '../citysearch/CitySearch'
 import NumberOfEvents from '../NumberOfEvents/NumberOfEvents'
 import Footer from '../footer/footer'
+import EventGenre from '../event-genre/EventGenre'
 import { extractLocations, getEvents, filterList } from '../../api/api';
 import "../../nprogress.css"
 import { WarningAlert } from '../alert/Alert';
+import EventsNumber from '../events-number/EventsNumber';
 
 class App extends React.Component {
   state={
@@ -15,16 +18,6 @@ class App extends React.Component {
     filteredList: [],
     offline: false,
   }
-
-  getData = () => {
-    const {locations, events} = this.state;
-    const data = locations.map((location)=>{
-      const number = events.filter((event) => event.location === location).length
-      const city = location.split(' ').shift()
-      return {city, number};
-    })
-    return data;
-  };
 
   updateEvents = (location, eventCount = this.state.numberOfEvents) => {
     getEvents().then((events) => {
@@ -62,7 +55,6 @@ class App extends React.Component {
 
   componentWillUnmount(){
     this.mounted = false;
-    window.removeEventListener('offline')
   }
 
   render(){
@@ -73,6 +65,10 @@ class App extends React.Component {
           <h1>Meet App</h1>
           <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
           <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents}/>  
+          <div className="data-vis-wrapper">
+            <EventGenre events={this.state.events} />
+            <EventsNumber events={this.state.events} locations={this.state.locations} />
+          </div>
           <EventList events={this.state.filteredList} />
         </div>
         <Footer />

@@ -7,20 +7,17 @@ function NumberOfEvents(props) {
   const [ error, setError ] = useState('')
 
   const handleChange = (e) => {
+    setNumberOfEvents(e.target.value)
+    props.updateNumberOfEvents(e.target.value)
     if(e.target.value >= 1 && e.target.value <= 32){
-      setNumberOfEvents(e.target.value)
-      props.updateNumberOfEvents(e.target.value)
       setError('')
     }else{
-      setNumberOfEvents(e.target.value)
-      props.updateNumberOfEvents('')
       setError('Select a number from 1 to 32')
     }
   }
 
   return (
     <div className="NumberOfEvents">
-      <ErrorAlert text={error} />
       <label>Nº. of events</label>
       <input
         type="number"
@@ -28,6 +25,7 @@ function NumberOfEvents(props) {
         value={numberOfEvents}
         onChange={handleChange}
       />
+      <ErrorAlert text={error} />
     </div>
   )
 }

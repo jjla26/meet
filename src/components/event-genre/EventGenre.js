@@ -7,10 +7,11 @@ export default function EventGenre(props) {
   const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS']
 
   const getData = () => {
-    const data = genres.map( genre => {
-      const value = events.filter( event => event.summary.split(' ').includes(genre)).length
+    let data = genres.map( genre => {
+      const value = events.filter( event => event.summary.replace(',','').replace('.', '').split(' ').includes(genre) ).length
       return { name: genre, value }
     })
+    data = data.filter(data => data.value)
     return data
   }
 

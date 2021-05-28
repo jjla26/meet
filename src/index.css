@@ -41,6 +41,7 @@ input[type="number"] {
   border: 1px solid #3282b8;
   font-size: 14px;
   line-height: 20px;
+  align-self: center;
   height: 38px;
   background-color: #1b262c;
   color: #bbe1fa
@@ -62,11 +63,6 @@ input[type="number"]:hover {
   max-width: 300px;
   margin: auto;
   position: relative;
-  margin-top: 30px
-}
-
-.CitySearch input {
-  align-self: center;
 }
 
 .suggestions {
@@ -75,7 +71,7 @@ input[type="number"]:hover {
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 58px;
+  top: 85px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -172,8 +168,13 @@ input[type="number"]:hover {
 .NumberOfEvents {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
+  margin-top: 20px
+}
+
+.numberOfEvents {
+  width: 200px;
+  margin: auto;
+  text-align: center;
 }
 
 .button-wrapper {
@@ -182,12 +183,6 @@ input[type="number"]:hover {
   grid-gap: 20px;
   padding: 20px;
   font-family: sans-serif;
-}
-
-.Alert {
-  position: fixed;
-  top: 90px;
-  margin-left: -50px;
 }
 
 .data-vis-wrapper {

@@ -9,6 +9,7 @@ class Alert extends Component {
   getStyle = () => {
     return {
       color: this.color,
+      minHeight: '18px'
     };
   }
 
@@ -32,14 +33,6 @@ class WarningAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'yellow';
-    this.getStyle = () => {
-      return {
-        position: 'fixed',
-        top: '20px',
-        left: '20px',
-        color: this.color
-      }
-    }
   }
 }
 
@@ -47,15 +40,6 @@ class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
     this.color= 'red'
-    this.getStyle = () => {
-      return {
-        position: 'absolute',
-        top: '150px',
-        right: '0px',
-        width: '200px',
-        color: this.color
-      }
-    }
   }
 }
 

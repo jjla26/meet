@@ -21,7 +21,7 @@ export default function EventGenre(props) {
 
   return (
     <ResponsiveContainer height={400}>
-      <PieChart height={400}>
+      <PieChart>
         <Pie
           data={data}
           cx="50%"
